@@ -1,0 +1,51 @@
+<div class="flex-div">
+    <div class="form-container">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="text-center form-heading">
+                <h2>Sign Up</h2>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text" [formControlName]="'username'" class="form-control" placeholder="User Name" required/>
+              <span class="text-danger" *ngIf="!signupForm.get('username')?.valid && signupForm.get('username')?.touched">
+                Please provide a valid Username
+            </span>  
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="email" [formControlName]="'email'" class="form-control" placeholder="Email Address"/>
+              <span class="text-danger" *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched">
+                Please provide a valid Email Id
+            </span> 
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="password" [formControlName]="'password'" class="form-control" placeholder="Password" />
+                <span class="text-danger" *ngIf="!signupForm.get('password')?.valid && signupForm.get('password')?.touched">
+                  Please provide a valid Password
+              </span> 
+            </div>
+
+            <!-- <div class="form-outline mb-4">
+                <input type="password" id="form2Example2" class="form-control" placeholder="Password" />
+            </div>
+          
+            Password input
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example2" class="form-control" placeholder="Password" /> 
+            </div>-->
+          
+          
+            <!-- Submit button -->
+            <div class="buttons text-center">
+                <button type="submit" class="btn btn-primary text-center btn-block mb-4">Sign Up</button>
+            </div>
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Already a Member? <a routerLink="/login">Login</a></p>
+            </div>
+          </form>
+    </div>
+
+</div>

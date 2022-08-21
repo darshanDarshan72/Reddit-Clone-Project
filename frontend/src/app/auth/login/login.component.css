@@ -1,0 +1,36 @@
+.flex-div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container{
+    margin-top: 4%;
+    padding:2%;
+    background-color:white;
+    border-radius: 10px;
+    width:30%;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2)
+   
+}
+
+.login-section{
+    margin: 100px;
+}
+
+.login-failed, .register-success{
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid black;
+    width: 65%;    
+    background-color: red;
+}
+
+.login-failed-text, .register-success-text{
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;    
+    color: aliceblue;
+}

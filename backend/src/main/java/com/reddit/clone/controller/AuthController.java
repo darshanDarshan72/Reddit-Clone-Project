@@ -22,7 +22,7 @@ import com.reddit.clone.service.AuthService;
 import com.reddit.clone.service.RefreshTokenService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -40,9 +40,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest)
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest)
     {
-        return this.authService.login(loginRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(this.authService.login(loginRequest));
     }
 
     @GetMapping("/accountVerification/{token}")
@@ -52,8 +52,6 @@ public class AuthController {
         return new ResponseEntity<>("Account Surressfully Activated",HttpStatus.OK);
     }
 
-    
-
     @PostMapping("/logout")
     public ResponseEntity<String> logout( @Valid @RequestBody RefreshTokenRequest refreshTokenRequest)
     {
@@ -62,9 +60,9 @@ public class AuthController {
     }
 
     @PostMapping("/refresh/token")
-    public AuthenticationResponse refreshTokens(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest)
+    public ResponseEntity<AuthenticationResponse> refreshTokens(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest)
     {
-        return this.authService.refreshToken(refreshTokenRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(this.authService.refreshToken(refreshTokenRequest));
     }
 
     

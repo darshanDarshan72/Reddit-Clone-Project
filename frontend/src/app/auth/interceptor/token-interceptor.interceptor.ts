@@ -29,18 +29,6 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
             request = request.clone({setHeaders:{"Authorization":
             'Bearer ' + jwtToken}});
           }
-        // if (this.authService.getJwtToken()) {
-        //     this.addToken(req, this.authService.getJwtToken());
-        // }
-
-        // return next.handle(req).pipe(catchError(error => {
-        //     if (error instanceof HttpErrorResponse
-        //         && error.status === 403) {
-        //         return this.handleAuthErrors(req, next);
-        //     } else {
-        //         return throwError(error);
-        //     }
-        // }));
         return next.handle(request);
     }
     private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler) {

@@ -114,8 +114,6 @@ public class AuthService {
                     .refreshToken(this.refreshTokenService.generateRefreshToken().getToken())
                     .expiresAt(Instant.now().plusMillis(jwtProvider.getJwtExpirationInMils()))
                     .build();
-        
-        // return new AuthenticationResponse(token,loginRequest.getUsername());
     }
 
     @Transactional(readOnly = true)
@@ -125,21 +123,6 @@ public class AuthService {
         return userRepository.findByUsername(principal.getSubject())
                 .orElseThrow(() -> new UsernameNotFoundException("User name not found - " + principal.getSubject()));
     }
-
-
-    // public AuthenticationResponse getRefreshToken(RefreshTokenRequest refreshTokenRequest) {
-
-    //     this.refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
-    //     String token = jwtProvider.generateTokenWithUsername(refreshTokenRequest.getUsername());
-
-    //     return AuthenticationResponse.builder()
-    //             .authenticationToken(token)
-    //             .username(refreshTokenRequest.getUsername())
-    //             .expiresAt(Instant.now().plusMillis(this.jwtProvider.getJwtExpirationInMils()))
-    //             .refreshToken(refreshTokenRequest.getRefreshToken())
-    //             .build();
-       
-    // }
 
 
     public AuthenticationResponse refreshToken(@Valid RefreshTokenRequest refreshTokenRequest) {

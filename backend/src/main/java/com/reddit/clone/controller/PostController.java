@@ -18,7 +18,7 @@ import com.reddit.clone.dto.PostResponse;
 import com.reddit.clone.service.PostService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/posts")
 public class PostController {
 

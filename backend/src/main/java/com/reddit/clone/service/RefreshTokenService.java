@@ -26,8 +26,6 @@ public class RefreshTokenService {
         refreshToken.setCreatedDate(Instant.now());
 
         return this.refreshTokenRepository.save(refreshToken);
-
-
     }
 
     public void validateRefreshToken(String token) {
